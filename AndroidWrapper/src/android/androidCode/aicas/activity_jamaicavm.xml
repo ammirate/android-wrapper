@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	tools:context=".JamaicavmActivity" >
+
+    <TextView
+    	android:id="@+id/vfText"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true"
+    	android:layout_centerHorizontal="true"
+    	android:layout_marginTop="30dp"
+    	android:text="-Libraries compatible with JDK 2 Standard Edition" />
+
+    <TextView
+    	android:id="@+id/lblLinkCar"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignLeft="@+id/vfText"
+    	android:layout_below="@+id/vfText"
+    	android:layout_marginTop="20dp"
+    	android:text="-Implements the Realtime Specification for Java (RTSJ)" />
+
+    <Button
+    	android:id="@+id/button1"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignLeft="@+id/textView4"
+    	android:layout_below="@+id/textView4"
+    	android:layout_marginTop="36dp"
+    	android:text=" Get link" />
+
+    <TextView
+    	android:id="@+id/lblLink"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignLeft="@+id/button1"
+    	android:layout_below="@+id/button1"
+    	android:layout_marginTop="36dp" />
+
+    <TextView
+    	android:id="@+id/textView3"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignLeft="@+id/lblLinkCar"
+    	android:layout_below="@+id/lblLinkCar"
+    	android:layout_marginTop="21dp"
+    	android:text="-Deterministic Garbage Collection" />
+
+    <TextView
+    	android:id="@+id/textView4"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignLeft="@+id/textView3"
+    	android:layout_below="@+id/textView3"
+    	android:layout_marginTop="14dp"
+    	android:text="-Highly optimized for speed with minimal footprint" />
+
+</RelativeLayout>

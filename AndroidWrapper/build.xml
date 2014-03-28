@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<
+< aicas GmbH, Karlsruhe
+<
+< Contents: ant build-script for "Hello World"-demo
+<
+<                                                                          -->
+
+<project name="AndroidWrapper" basedir="." default="AndroidWrapperLauncher">
+  <property environment="env"/>
+  <condition property="jamaica" value="${env.JAMAICA}" else="/usr/local/jamaica-6.3dev-0">
+    <isset property="env.JAMAICA"/>
+  </condition>
+  <property name="target.platform" value="linux-x86"/>
+  <property name="javac.classpath" value="classes"/>
+  <property name="javac.bootclasspath" value="${jamaica}/target/${target.platform}/lib/rt.jar"/>
+  <property name="java.stack.size" value="8192"/>
+  <property name="native.stack.size" value="98304"/>
+
+  <!-- define Jamaica tasks -->
+  <target name="taskdefs">
+    <fail message="JamaicaTools.jar not found. Please ensure that the JAMAICA environment variable
+is set and points to a valid Jamaica distribution">
+      <condition>
+        <not>
+          <available file="${jamaica}/lib/JamaicaTools.jar"/>
+        </not>
+      </condition>
+    </fail>
+    <taskdef name="jamaicabuilder" classname="com.aicas.jamaica.tools.ant.JamaicaTask" classpath="${jamaica}/lib/JamaicaTools.jar"/>
+  </target>
+
+<!--                            Dependencies                               -->
+
+  <!-- create all targets (programs) -->
+  
+  <!-- clean -->
+  <target name="clean">
+    <delete dir="classes"/>
+    <delete dir="tmp"/>
+    <delete file="HelloWorld.prof"/>
+    <delete file="HelloWorld"/>
+    <delete file="HelloWorld_profiled"/>
+    <delete file="HelloWorld_micro"/>
+    <delete file="HelloWorldProf_host"/>
+    <delete file="HelloWorld.jar"/>
+  </target>
+
+  <!-- compile java-files to class-files -->
+  <target name="classes">
+    <mkdir dir="${javac.classpath}"/>
+    <javac srcdir="src"
+           destdir="${javac.classpath}"
+           classpath="${javac.classpath}"
+           bootclasspath="${javac.bootclasspath}"/>
+  </target>
+
+  <!-- standard HelloWorld: -->
+  <target name="AndroidWrapperLauncher" depends="taskdefs">
+    <jamaicabuilder jamaica="${jamaica}">
+      <classpath value="AndroidWrapper.jar"/>
+      <classpath value="/home/cesarano/Downloads/RelativeLayout-v1.0-src.jar"/>
+      <classpath value="/home/cesarano/Downloads/Jama-1.0.2.jar"/>
+      <includeJAR value="AndroidWrapper.jar"/>
+      <includeJAR value="/home/cesarano/Downloads/RelativeLayout-v1.0-src.jar"/>
+      <includeJAR value="/home/cesarano/Downloads/Jama-1.0.2.jar"/>
+      <target value="${target.platform}"/>
+      <setGraphics value="xwindow"/>
+      <interpret value="true"/>
+      <destination value="AndroidWrapper"/>
+      <main value="android.app.AndroidWrapperLauncher"/>
+    </jamaicabuilder>
+  </target>
+
+  <!-- HelloWorld.jar: -->
+  <target name="jar" depends="classes">
+    <jar destfile="${basedir}/HelloWorld.jar" basedir="classes">
+      <manifest>
+        <attribute name="Main-Class" value="HelloWorld"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <!-- compiled 'Hello World' using explicit profile: -->
+  <target name="HelloWorld_profiled"
+          depends="taskdefs, classes, HelloWorld.prof, check.uptodate"
+          unless="HelloWorld_profiled.isUpToDate">
+    <jamaicabuilder jamaica="${jamaica}">
+      <classpath value="classes"/>
+      <setGraphics value="none"/>
+      <useProfile value="HelloWorld.prof"/>
+      <target value="${target.platform}"/>
+      <destination value="HelloWorld_profiled"/>
+      <main value="HelloWorld"/>
+    </jamaicabuilder>
+  </target>
+
+  <!-- 'Hello World' using minimal memory and footprint: limited libraries, -->
+  <target name="HelloWorld_micro"
+          depends="taskdefs, classes, check.uptodate"
+          unless="HelloWorld_micro.isUpToDate">
+    <jamaicabuilder jamaica="${jamaica}">
+      <heapSize value="2M"/>
+      <maxHeapSize value="2M"/>
+      <numThreads value="1"/>
+      <maxNumThreads value="1"/>
+      <finalizerPri value="0"/>
+      <timeSlice value="0ns"/>
+      <reservedMemory value="0"/>
+      <XdefineProperty value="jamaica.no_sig_int_handler=true"/>
+      <XdefineProperty value="jamaica.no_sig_quit_handler=true"/>
+      <XdefineProperty value="jamaica.no_sig_term_handler=true"/>
+      <setLocales value="none"/>
+      <setGraphics value="none"/>
+      <setProtocols value="none"/>
+      <setFonts value="none"/>
+      <optimize value="size"/>
+      <interpret value="true"/>
+      <closed value="true"/>
+      <XignoreLineNumbers value="true"/>
+      <setTimeZones value=""/>
+      <javaStackSize value="${java.stack.size}"/>
+      <nativeStackSize value="${native.stack.size}"/>
+      <classpath value="classes"/>
+      <target value="${target.platform}"/>
+      <destination value="HelloWorld_micro"/>
+      <main value="HelloWorld"/>
+    </jamaicabuilder>
+  </target>
+
+  <!-- create HelloWorld on host to collect profiling info: -->
+  <target name="HelloWorldProf_host"
+          depends="taskdefs, classes, check.uptodate"
+          unless="HelloWorldProf.isUpToDate">
+    <jamaicabuilder jamaica="${jamaica}">
+      <classpath value="classes"/>
+      <interpret value="true"/>
+      <profile value="true"/>
+      <setGraphics value="none"/>
+      <destination value="HelloWorldProf_host"/>
+      <main value="HelloWorld"/>
+    </jamaicabuilder>
+  </target>
+
+  <!-- create 'Hello World' profile data: -->
+  <target name="HelloWorld.prof" depends="HelloWorldProf_host">
+    <exec executable="${basedir}/HelloWorldProf_host" failonerror="true"/>
+  </target>
+
+  <target name="check.uptodate">
+    <uptodate property="HelloWorldProf.isUpToDate" targetfile="HelloWorldProf_host">
+      <srcfiles dir="${basedir}/classes" includes="*.class"/>
+    </uptodate>
+    <uptodate property="HelloWorld.isUpToDate" targetfile="HelloWorld">
+      <srcfiles dir="${basedir}/classes" includes="*.class"/>
+    </uptodate>
+    <uptodate property="HelloWorld_profiled.isUpToDate" targetfile="HelloWorld_profiled">
+      <srcfiles dir="${basedir}/classes" includes="*.class"/>
+    </uptodate>
+    <uptodate property="HelloWorld_micro.isUpToDate" targetfile="HelloWorld_micro">
+      <srcfiles dir="${basedir}/classes" includes="*.class"/>
+    </uptodate>
+  </target>
+
+  <!-- run all executables -->
+</project>
+
+<!--- end of file -->
