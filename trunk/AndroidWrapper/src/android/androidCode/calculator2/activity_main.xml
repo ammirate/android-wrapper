@@ -1,0 +1,216 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:gravity="bottom"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	android:orientation="horizontal" 
+	android_tools:context="MainActivity" >
+
+	<Button
+		android:id="@+id/button_7"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_7"
+		android:text="@string/eingabe_7" />
+
+	<Button
+		android:id="@+id/button_8"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_8"
+		android:text="@string/eingabe_8" />
+
+	<Button
+		android:id="@+id/button_9"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_9"
+		android:text="@string/eingabe_9" />
+
+	<Button
+		android:id="@+id/button_4"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_4"
+		android:text="@string/eingabe_4" />
+
+	<Button
+		android:id="@+id/button_5"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_5"
+		android:text="@string/eingabe_5" />
+
+	<Button
+		android:id="@+id/button_6"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_6"
+		android:text="@string/eingabe_6" />
+
+	<Button
+		android:id="@+id/button_1"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_1"
+		android:text="@string/eingabe_1" />
+
+	<Button
+		android:id="@+id/button_2"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_2"
+		android:text="@string/eingabe_2" />
+
+	<Button
+		android:id="@+id/button_3"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_3"
+		android:text="@string/eingabe_3" />
+
+	<Button
+		android:id="@+id/button_0"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="2"
+		android:onClick="ClickButton_0"
+		android:text="@string/eingabe_0" />
+
+	<Button
+		android:id="@+id/button_punkt"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:onClick="ClickButton_punkt"
+		android:text="@string/eingabe_punkt" />
+
+	<Button
+		android:id="@+id/button_geteilt"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+		android:onClick="ClickButton_geteilt"
+		android:text="@string/eingabe_geteilt" />
+
+	<Button
+		android:id="@+id/button1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="ClickButton_clean"
+		android:text="@string/clean" />
+
+	<Button
+		android:id="@+id/button_mal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+		android:onClick="ClickButton_mal"
+		android:text="@string/eingabe_mal" />
+
+	<Button
+		android:id="@+id/button_klammerauf"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="ClickButton_klammerauf"
+		android:text="@string/eingabe_klammerauf" />
+
+	<Button
+		android:id="@+id/button_minus"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+		android:onClick="ClickButton_minus"
+		android:text="@string/eingabe_minus" />
+
+	<Button
+		android:id="@+id/button_klammerzu"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="ClickButton_klammerzu"
+		android:text="@string/eingabe_klammerzu" />
+
+	<Button
+		android:id="@+id/button_plus"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+		android:onClick="ClickButton_plus"
+		android:text="@string/eingabe_plus" />
+
+	<Button
+		android:id="@+id/button_gleich"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="ClickButton_gleich"
+		android:text="@string/eingabe_gleich" />
+
+	<Button
+		android:id="@+id/clean"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentTop="true"
+		android:onClick="ClickButton_back"
+		android:text="@string/löschen" />
+
+	<TextView
+		android:id="@+id/eingabefeld"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/boni"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true"
+		android:layout_toLeftOf="@+id/clean"
+		android:text="@string/eingabe"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	<Button
+		android:id="@+id/sin"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="ClickButton_sinus"
+		android:text="@string/sinus" />
+
+	<Button
+		android:id="@+id/cos"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="ClickButton_cosinus"
+		android:text="@string/cosinus" />
+
+	<Button
+		android:id="@+id/pi\u03C0\u03C0"
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="ClickButton_pi"
+		android:text="@string/pi" />
+
+	</LinearLayout>

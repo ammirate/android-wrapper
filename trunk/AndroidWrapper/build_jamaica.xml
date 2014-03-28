@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build_android.app.AndroidWrapperLauncher" name="android.app.AndroidWrapperLauncher">
+  <!-- aicas GmbH, Karlsruhe -->
+  <!-- Jamaica Buildfile for application 'android.app.AndroidWrapperLauncher' -->
+  <!-- ANT_EDITOR_VERSION=1.1.6.201305221330 -->
+  <taskdef classname="com.aicas.jamaica.tools.ant.JamaicaTask" classpath="/home/cesarano/builds/build_linux-x86/lib/JamaicaTools.jar" name="jamaicabuilder"/>
+  
+  
+  <target name="build_android.app.AndroidWrapperLauncher" unless="jamaica.executable_of_build_android.app.AndroidWrapperLauncher_available">
+    <jamaicabuilder jamaica="/home/cesarano/builds/build_linux-x86">
+      <target append="false" enabled="true" value="linux-x86"/>
+      <destination value="AndroidWrapper"/>
+      <interpret value="true"/>
+      <main append="false" enabled="true" value="android.app.AndroidWrapperLauncher"/>
+      <tmpdir append="false" enabled="true" value="bin"/>
+      <classpath append="false" enabled="true" value="bin:AndroidWrapper.jar:/home/cesarano/Downloads/Jama-1.0.2.jar:/home/cesarano/Downloads/RelativeLayout-v1.0-src.jar"/>
+      <includeClasses value="android... com.android..."/>
+      <includeJAR append="false" enabled="true" value="AndroidWrapper.jar:/home/cesarano/Downloads/RelativeLayout-v1.0-src.jar:/home/cesarano/Downloads/Jama-1.0.2.jar"/>
+      <resource append="false" enabled="true" value="images/thirdButtonPressed.png:images/thirdButton.png:images/nexus2.png:images/nexus.png:images/homeButtonPressed.png:images/homeButton.png:images/backButtonPressed.png:images/backButton.png:images/androidIco.png:images/aicas.png:images/thirdButtonPressed.png"/>
+    </jamaicabuilder>
+    <echo>
+      The executable has been created successfully:
+        /home/cesarano/workspace/AndroidWrapper/android.app.AndroidWrapperLauncher
+      You can launch it using the "Overview" page in this editor.
+    </echo>
+  </target>
+  
+  <target name="launch_android.app.AndroidWrapperLauncher">
+    <available file="android.app.AndroidWrapperLauncher" property="jamaica.executable_of_build_android.app.AndroidWrapperLauncher_available"/>
+    <antcall target="build_android.app.AndroidWrapperLauncher"/>
+    <exec executable="android.app.AndroidWrapperLauncher" resolveexecutable="true"/>
+  </target>
+  
+</project>
