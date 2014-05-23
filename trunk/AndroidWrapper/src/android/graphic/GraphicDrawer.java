@@ -11,7 +11,6 @@ import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,7 +36,6 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import android.app.Activity;
-import android.app.AndroidWrapper;
 import android.app.AndroidWrapperLauncher;
 import android.graphics.Canvas;
 import android.os.Bundle;
@@ -51,6 +49,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.WidgetProperties;
 import android.xml.GraphicNodeParser;
@@ -625,13 +624,22 @@ public class GraphicDrawer{
             iv.setName(node.getAndroidId());
             return iv;
         }
-      //######## SurfaceView ###########
+        //######## SurfaceView ###########
         else if(node.getGraphicElement().equals("SurfaceView"))
         {
             SurfaceView sv = new SurfaceView(id);
             sv.setName(node.getAndroidId());
             return sv;
         }
+        //########## Switch ############
+        else if(node.getGraphicElement().equals("Switch"))
+        {
+            Switch switch_ = new Switch();
+            switch_.setName(node.getAndroidId());
+            switch_.setText(node.getText());
+            return switch_;
+        }
+        
         return null;
     }
 
