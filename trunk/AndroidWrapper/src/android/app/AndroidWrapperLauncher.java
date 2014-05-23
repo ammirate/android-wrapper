@@ -118,7 +118,7 @@ public class AndroidWrapperLauncher extends JFrame {
 
         heightTextField = new JTextField();
         heightTextField.setBounds(95, 27, 101, 32);
-        heightTextField.setText("800");
+        heightTextField.setText("600");
         dimensionPanel.add(heightTextField);
         heightTextField.setColumns(10);  
         heightTextField.addKeyListener(new KeyListener() 
@@ -230,7 +230,7 @@ public class AndroidWrapperLauncher extends JFrame {
 
         //################## Project Panel ############################
         
-       String[] list = {
+   /*    String[] list = {
                "helloWorld",
                "sayHello", 
                "radioButton", 
@@ -241,12 +241,16 @@ public class AndroidWrapperLauncher extends JFrame {
                "listview", 
                "aicas",
                "rectangle" ,
-            //   "surfaceview" , 
                "animation", 
                "ball",
-          //     "ball2",
                "paint"
                };
+    */   
+       String[] list = {
+    		   "helloWorld",
+               "toastExample"
+               };
+       
 
         JPanel projectPanel = new JPanel();
         projectPanel.setBounds(12, 215, 241, 178);

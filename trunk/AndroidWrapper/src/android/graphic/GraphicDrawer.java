@@ -278,7 +278,10 @@ public class GraphicDrawer{
             for(int c=0; c<fields.length; c++)
             {
                 fields[c].setAccessible(true);
-                R_hashMap.put((Integer)fields[c].get(null), fields[c].getName());
+              //  System.out.println("fillR_HashMap() --> " + fields[c].get(null) +" name: "+ fields[c].getName());
+                if(fields[c].get(null) instanceof Integer){
+                	R_hashMap.put((Integer)fields[c].get(null), fields[c].getName());
+                }
             } 
         }
     }
@@ -364,7 +367,7 @@ public class GraphicDrawer{
         frame.setTitle("MAEESTRO"); 
         frame.setPreferredSize(new Dimension(width,height));
         frame.setSize(width,height);
-        frame.setLocation(600, 200);
+        frame.setLocation(WidgetProperties.getX_LOCATION(), WidgetProperties.getY_LOCATION());
         frame.getContentPane().setLayout(new BorderLayout());
         frame.setResizable(false);
         lastComponentDrowed = frame.getContentPane();
