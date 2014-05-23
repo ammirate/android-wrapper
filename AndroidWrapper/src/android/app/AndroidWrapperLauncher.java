@@ -248,7 +248,8 @@ public class AndroidWrapperLauncher extends JFrame {
     */   
        String[] list = {
     		   "helloWorld",
-               "toastExample"
+               "toastExample",
+    		   "switchExample"
                };
        
 
