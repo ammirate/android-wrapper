@@ -367,7 +367,6 @@ public class Activity extends Context
 
     @Override
     public Context getApplicationContext() {
-        // TODO Auto-generated method stub
         return null;
     }
 

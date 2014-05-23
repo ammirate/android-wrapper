@@ -50,6 +50,12 @@ public class WidgetProperties
     //####################### ListView properties ###########################
     private static int ROW_HEIGHT = fontSize + 60;
     
+    
+    //####################### Position of the window on the screen ################
+    private static int X_LOCATION = 600;
+    private static int Y_LOCATION = 200;
+    
+    
     private static boolean isLandscape = false;
     
     /**
@@ -65,7 +71,7 @@ public class WidgetProperties
         factor              = (int) FRAME_WIDTH / 300;
         fontSize            = (int) (Math.log10((biggerSide/10)) * 10 - (4-factor)) ;    
         FONT                = new Font(Font.SERIF, Font.CENTER_BASELINE, fontSize);
-        FONT_CLICKED         = new Font(Font.SERIF, Font.CENTER_BASELINE,fontSize+1);    
+        FONT_CLICKED        = new Font(Font.SERIF, Font.CENTER_BASELINE,fontSize+1);    
         CHARS_IN_LINE       = (FRAME_WIDTH /9) - 5;
         NUM_COLUMNS         = (int)(FRAME_WIDTH / fontSize) - 6;
         ROW_HEIGHT = fontSize + 60;
@@ -217,6 +223,16 @@ public class WidgetProperties
         if(!isLandscape) return REAL_WIDTH;
         else return REAL_HEIGHT;
     }
+
+
+	public static int getX_LOCATION() {
+		return X_LOCATION;
+	}
+
+
+	public static int getY_LOCATION() {
+		return Y_LOCATION;
+	}
 
 
     
