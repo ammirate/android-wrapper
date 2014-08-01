@@ -6533,10 +6533,6 @@ public abstract class Component implements ImageObserver, MenuContainer,
                         parentContPeer = (ContainerPeer) hwParent.peer;
                     }
                 }
-                if (parentContPeer.isRestackSupported()) {
-                    parentContPeer.restack();
-                }
-               
             }
 
             if (!isAddNotifyComplete) {
