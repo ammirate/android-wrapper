@@ -11,6 +11,14 @@ import javax.swing.JLabel;
 
 import java.awt.FlowLayout;
 
+
+/**
+ * This class allows the use of the Switch widget into MAEESTRO.
+ * 
+ * @author antonio
+ *
+ * Class added for the project of Software Engineering 2 
+ */ 
 public class Switch extends JPanel implements SimpleComponent, Checkable{
 
 	/**
@@ -64,7 +72,7 @@ public class Switch extends JPanel implements SimpleComponent, Checkable{
 	}
 
 	public boolean isChecked() {
-		System.out.println("Switch state: " + state);
+		//System.out.println("Switch state: " + state);
 		return state;
 	}
 
