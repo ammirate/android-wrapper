@@ -22,7 +22,7 @@ public class WidgetProperties
     private static   int COMMAND_HEIGHT          =  (int) (FRAME_HEIGHT * 0.1);
     private static   int COMMAND_WIDTH           = (int) COMMAND_HEIGHT;
     
-    private static   int COMMAND_BUTTON_SIZE     = COMMAND_HEIGHT - 16;
+    private static   int COMMAND_BUTTON_SIZE     = COMMAND_HEIGHT - 2;
     
     //default is portrait
     private static  int biggerSide = FRAME_HEIGHT;

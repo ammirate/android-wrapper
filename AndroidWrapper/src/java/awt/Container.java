@@ -154,7 +154,7 @@ public class Container extends Component {
      * @see #isFocusCycleRoot
      * @since 1.4
      */
-    private boolean focusCycleRoot = false;
+    private static boolean focusCycleRoot = false;
 
 
     /**
@@ -645,6 +645,7 @@ public class Container extends Component {
                 !((ContainerPeer)(newNativeContainer.peer)).isRestackSupported();
        */
         }
+		return focusCycleRoot;
         
         
     }
@@ -811,8 +812,7 @@ public class Container extends Component {
                 comp.addNotify();
                 // New created peer creates component on top of the stacking order
                 Container newNativeContainer = getHeavyweightContainer();
-                if (((ContainerPeer)newNativeContainer.getPeer()).isRestackSupported()) {
-                    ((ContainerPeer)newNativeContainer.getPeer()).restack();
+                if (((ContainerPeer)newNativeContainer.getPeer()).isReparentSupported()) {
                 }
             } else { // Both container and child have peers, it means child peer should be reparented.
                 // In both cases we need to reparent native widgets.
@@ -824,11 +824,7 @@ public class Container extends Component {
                 }
                 // If component still has a peer and it is either container or heavyweight
                 // and restack is supported we have to restack native windows since order might have changed
-                if ((!comp.isLightweight() || (comp instanceof Container))
-                    && ((ContainerPeer)newNativeContainer.getPeer()).isRestackSupported())
-                {
-                    ((ContainerPeer)newNativeContainer.getPeer()).restack();
-                }
+                
                 if (!comp.isLightweight() && isLightweight()) {
                     // If component is heavyweight and one of the containers is lightweight
                     // some NativeInLightFixer activity should be performed
@@ -2643,10 +2639,7 @@ public class Container extends Component {
             }
             // Update stacking order if native platform allows
             ContainerPeer cpeer = (ContainerPeer)peer;
-            if (cpeer.isRestackSupported()) {
-                cpeer.restack();
-            }
-
+           
 
         }
     }

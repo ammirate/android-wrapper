@@ -336,8 +336,9 @@ public class GraphicDrawer{
          * put the panel in which execute the activity at north and
          * the panel with the system buttons (Back, Home, RecentApps) at south
          */
-        frame.getContentPane().add(activityPanelScrollable,BorderLayout.NORTH);              
         frame.getContentPane().add(comandPanel,BorderLayout.SOUTH);
+        frame.getContentPane().add(activityPanelScrollable,BorderLayout.NORTH);              
+
 
         //create the tree structure of the components
         draw(tree);

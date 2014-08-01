@@ -53,6 +53,7 @@ public class ActivityPanel extends JPanel
         
         //redirect mouseclick to all view elements
         createMouselistener();
+        
     }
 
 
