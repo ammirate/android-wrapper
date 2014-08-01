@@ -15,6 +15,15 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
 
+
+/**
+ * This class allows to Android applications to show a text message for a short time
+ * in a little frame.
+ * 
+ * @author antonio
+ *
+ * Class added for the project of Software Engineering 2 
+ */ 
 public  class Toast  extends JFrame{
 
 	/**

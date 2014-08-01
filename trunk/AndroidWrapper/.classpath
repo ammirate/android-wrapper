@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/antonio/Scrivania/IS2/Jama-1.0.2.jar"/>
-	<classpathentry kind="lib" path="/home/antonio/Scrivania/IS2/RelativeLayout-v1.0-src.jar"/>
+	<classpathentry kind="lib" path="/home/antonio/Dropbox/IS2/progettoIS2/OffTheShelf components/Jama-1.0.2.jar"/>
+	<classpathentry kind="lib" path="/home/antonio/Dropbox/IS2/progettoIS2/OffTheShelf components/RelativeLayout-v1.0-src.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
