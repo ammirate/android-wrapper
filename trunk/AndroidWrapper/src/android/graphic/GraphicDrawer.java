@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import javax.management.RuntimeErrorException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -199,6 +200,14 @@ public class GraphicDrawer{
     	if(myInstance == null){
     		myInstance = new GraphicDrawer(bundle);
     	}
+    	return myInstance;
+    }
+    
+    
+    
+    public static GraphicDrawer getInstance(){
+    	if (myInstance == null)
+    		throw new RuntimeException("GraphicDrawer not instantiated yet");
     	return myInstance;
     }
     
