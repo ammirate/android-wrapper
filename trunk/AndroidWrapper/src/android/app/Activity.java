@@ -81,7 +81,7 @@ public class Activity extends Context
     protected void onCreate(Bundle savedInstanceState)
     {   
         bundle = savedInstanceState;
-        graphicDrawer = new GraphicDrawer(savedInstanceState);
+        graphicDrawer = GraphicDrawer.getInstance(savedInstanceState);
         graphicDrawer.setOwnerActivity(this);
         graphicDrawer.setPreviusFrame(savedInstanceState.getPreviousFrame());
         graphicDrawer.generateGraphic();
