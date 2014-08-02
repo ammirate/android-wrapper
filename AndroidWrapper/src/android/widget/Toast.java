@@ -2,18 +2,13 @@ package android.widget;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Rectangle;
+import java.awt.Point;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
+import android.graphic.GraphicDrawer;
 
 
 /**
@@ -34,6 +29,11 @@ public  class Toast  extends JFrame{
 	 */
 	public static final int LENGTH_SHORT = 2000;
 	public static final int LENGTH_LONG = 5000;
+	
+	private static final int SIZE_X = 160;
+	private static final int SIZE_Y = 40;
+	
+	
 	
 	private Context context;
 	
@@ -79,11 +79,10 @@ public  class Toast  extends JFrame{
     	mytoast.getContentPane().setBackground(Color.black);
     	mytoast.setLayout(new BorderLayout());
     	
-    	int xLoc = (int) (WidgetProperties.getX_LOCATION() + WidgetProperties.getACTIVITY_WIDTH() * 0.25);
-    	int yLoc = (int) (WidgetProperties.getY_LOCATION() + WidgetProperties.getACTIVITY_HEIGHT() * 0.70);
-    	mytoast.setLocation(xLoc, yLoc );
+    	Point p = calculateToastOrigin(); 
+    	mytoast.setLocation( (int)(p.getX()),  (int)(p.getY()) );
     	mytoast.setVisible(true);
-    	mytoast.setSize(150, 40);
+    	mytoast.setSize(SIZE_X, SIZE_Y);
     	mytoast.getContentPane().add(textLabel, BorderLayout.CENTER);
     	
     	KillerThread kt = new KillerThread(mytoast, mDuration);
@@ -136,6 +135,21 @@ public  class Toast  extends JFrame{
 	   }
    }
     
+   
+   /**
+    * This method calculate the origin point (x,y) in which the toast will appear
+    * 
+    * @return an array of 2 elements, made by x and y coordinates.
+    */
+   private Point calculateToastOrigin(){
+	   	   
+	   GraphicDrawer gd = GraphicDrawer.getInstance();
+	   Point p = gd.getCurrentFrame().getLocation();
+	   int x = (int) (p.getX() - SIZE_X/2 + (WidgetProperties.getFRAME_WIDTH()/2));
+	   int y = (int) (p.getY() - SIZE_Y/2 + (WidgetProperties.getFRAME_HEIGHT() * 4/5));
+	   
+	   return new Point(x, y);
+   }
    
 
 }
