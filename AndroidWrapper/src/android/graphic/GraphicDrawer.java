@@ -64,6 +64,7 @@ import edu.cmu.relativelayout.RelativeLayout;
 /**
  * This class is responsable to get all the resources of an Android application
  * and generate the graphics components that they describe.
+ * It implements the Singleton Pattern, so you have to invoke getInstance() to instantiate it.
  * 
  * The class uses object from external JAR files which are RelativeLayout and 
  * Jama. The files are downloadable from these two links:
@@ -183,9 +184,24 @@ public class GraphicDrawer{
     private Canvas canvas;
     
     private Component lastComponentDrowed = null;
+    
+    
+    /**
+     * instance of this class used to implement Singleton Pattern
+     */
+    private static  GraphicDrawer myInstance = null;
 
 
     //_______________________________________________________________________________
+    
+    
+    public static GraphicDrawer getInstance(Bundle bundle){
+    	if(myInstance == null){
+    		myInstance = new GraphicDrawer(bundle);
+    	}
+    	return myInstance;
+    }
+    
 
     /**
      * The constructor takes in input the xml source file for the Android graphic
@@ -194,7 +210,7 @@ public class GraphicDrawer{
      * @param filename xml file path
      * @throws ParserConfigurationException
      */
-    public GraphicDrawer(Bundle bundle)
+    private GraphicDrawer(Bundle bundle)
     {   
         this.bundle = bundle;
         xmlPath = bundle.getXmlPath();
