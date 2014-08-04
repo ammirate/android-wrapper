@@ -230,7 +230,7 @@ public class AndroidWrapperLauncher extends JFrame {
 
         //################## Project Panel ############################
         
-   /*    String[] list = {
+       String[] list = {
                "helloWorld",
                "sayHello", 
                "radioButton", 
@@ -245,14 +245,14 @@ public class AndroidWrapperLauncher extends JFrame {
                "ball",
                "paint"
                };
-    */   
+    /*   
        String[] list = {
     		   "helloWorld",
                "toastExample",
     		   "switchExample"
                };
        
-
+*/
         JPanel projectPanel = new JPanel();
         projectPanel.setBounds(12, 215, 241, 178);
         projectPanel.setBorder(new TitledBorder(null, "Android apps list", TitledBorder.LEADING, TitledBorder.TOP, null, null));

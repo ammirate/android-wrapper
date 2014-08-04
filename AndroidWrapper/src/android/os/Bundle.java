@@ -2,6 +2,8 @@ package android.os;
 
 import javax.swing.JFrame;
 
+import org.apache.commons.lang3.SystemUtils;
+
 /**
  * 
  * A Bundle object in Android represents a pack of system information; 
@@ -49,7 +51,11 @@ public class Bundle
     }
 
     public String getXmlPath() {
-        return xmlPath;
+    	
+    	if(SystemUtils.IS_OS_WINDOWS)
+    		return xmlPath.replace('\\', '/');
+    	else
+    		return xmlPath;
     }
 
     public void setXmlPath(String xmlPath) {

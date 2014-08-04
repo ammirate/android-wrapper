@@ -84,7 +84,7 @@ public final class R {
         public static final int eingabe_plus=0x7f05000f;
         public static final int eingabe_punkt=0x7f050014;
         public static final int fun=0x7f050017;
-        public static final int löschen=0x7f050018;
+        public static final int lschen=0x7f050018;
         public static final int pi=0x7f05001b;
         public static final int sinus=0x7f050019;
         public static final int test=0x7f050015;

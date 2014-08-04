@@ -1,4 +1,4 @@
-package android.graphic;
+package android.app;
 
 import java.awt.Component;
 import java.awt.FlowLayout;

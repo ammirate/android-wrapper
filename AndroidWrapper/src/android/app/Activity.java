@@ -14,7 +14,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphic.GraphicDrawer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -81,7 +80,7 @@ public class Activity extends Context
     protected void onCreate(Bundle savedInstanceState)
     {   
         bundle = savedInstanceState;
-        graphicDrawer = GraphicDrawer.getInstance(savedInstanceState);
+        graphicDrawer = new GraphicDrawer(savedInstanceState);
         graphicDrawer.setOwnerActivity(this);
         graphicDrawer.setPreviusFrame(savedInstanceState.getPreviousFrame());
         graphicDrawer.generateGraphic();

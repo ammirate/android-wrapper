@@ -1,4 +1,4 @@
-package android.graphic;
+package android.app;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,8 +37,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import android.app.Activity;
-import android.app.AndroidWrapperLauncher;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.SurfaceView;
@@ -219,7 +218,7 @@ public class GraphicDrawer{
      * @param filename xml file path
      * @throws ParserConfigurationException
      */
-    private GraphicDrawer(Bundle bundle)
+    GraphicDrawer(Bundle bundle)
     {   
         this.bundle = bundle;
         xmlPath = bundle.getXmlPath();
@@ -238,7 +237,11 @@ public class GraphicDrawer{
         {
             builder = builderFactory.newDocumentBuilder();
             
+         //   xmlPath = xmlPath.replace('\\', '/');
             InputStream in = getClass().getResourceAsStream(xmlPath);
+            
+            System.out.println("path "+ xmlPath);
+            System.out.println("file in: "+ in);
             
            // document = builder.parse(new FileInputStream(xmlPath));
             document = builder.parse(in);
@@ -1244,9 +1247,10 @@ public class GraphicDrawer{
                 activityPanel.repaint();
                 frame.repaint();
                 System.gc();
-               // System.exit(0);
+                //System.exit(0);
                 AndroidWrapperLauncher launcher = new AndroidWrapperLauncher();
                 launcher.setVisible(true);
+                
                 
             }
         });

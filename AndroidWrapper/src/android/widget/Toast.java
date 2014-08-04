@@ -7,8 +7,8 @@ import java.awt.Point;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import android.app.GraphicDrawer;
 import android.content.Context;
-import android.graphic.GraphicDrawer;
 
 
 /**

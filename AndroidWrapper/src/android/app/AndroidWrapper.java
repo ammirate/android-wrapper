@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 
 import com.sun.media.sound.Toolkit;
 
-import android.graphic.GraphicDrawer;
 import android.os.Bundle;
 /**
  * The AndroidWrapper class is a wrapper that allows to execute code written 
