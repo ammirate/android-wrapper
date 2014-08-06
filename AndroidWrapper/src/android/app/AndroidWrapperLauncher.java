@@ -33,6 +33,7 @@ import javax.swing.border.TitledBorder;
 
 import android.widget.WidgetProperties;
 
+@Deprecated
 public class AndroidWrapperLauncher extends JFrame {
 
 
@@ -229,7 +230,7 @@ public class AndroidWrapperLauncher extends JFrame {
         image.setIcon(new ImageIcon(getClass().getResource("/images/nexus.png")));
 
         //################## Project Panel ############################
-        
+        /*   
        String[] list = {
                "helloWorld",
                "sayHello", 
@@ -245,14 +246,14 @@ public class AndroidWrapperLauncher extends JFrame {
                "ball",
                "paint"
                };
-    /*   
+       */     
        String[] list = {
     		   "helloWorld",
                "toastExample",
     		   "switchExample"
                };
        
-*/
+
         JPanel projectPanel = new JPanel();
         projectPanel.setBounds(12, 215, 241, 178);
         projectPanel.setBorder(new TitledBorder(null, "Android apps list", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -348,7 +349,7 @@ public class AndroidWrapperLauncher extends JFrame {
        String OS = System.getProperty("os.name").toLowerCase();
        String currentPath =  System.getProperty("user.dir");
 
-       System.out.println("CurrentPath: " + currentPath);
+      // System.out.println("CurrentPath: " + currentPath);
        if(OS.contains("win"))
        {
            return /*currentPath +*/ "\\android\\androidCode\\" + project + "\\";

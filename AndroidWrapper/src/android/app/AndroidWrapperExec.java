@@ -53,12 +53,40 @@ public class AndroidWrapperExec {
     private static void executeAndroidApp(String project) 
     {
         String packagePath = "android.androidCode." + project;
-        String resourcePath = "/home/cesarano/workspace/AndroidWrapper/src/android/androidCode/" + project + "/";
-
+        String resourcePath = getProjectPath(project);
+        
         AndroidWrapper androidWrapper = new AndroidWrapper(resourcePath, packagePath);      
         androidWrapper.startAndroidActivity();
     }
     
+    
+    
+    /**
+     * Get the current working path to load correctly all the files
+     * to execute the android app. The string returned changes in base of
+     * the Operating system in use.
+     * 
+     * @return the correct project path for the current operative system
+     */
+   private static String getProjectPath(String project)
+   {
+       String OS = System.getProperty("os.name").toLowerCase();
+       String currentPath =  System.getProperty("user.dir");
+
+      // System.out.println("CurrentPath: " + currentPath);
+       if(OS.contains("win"))
+       {
+           return /*currentPath +*/ "\\android\\androidCode\\" + project + "\\";
+       }
+       else if(OS.contains("nix") || OS.contains("nux"))
+       {
+          return /*currentPath +*/ "/android/androidCode/" + project + "/";
+       }
+       else
+       {
+           throw new RuntimeException("Operating system not supported");
+       }
+   }
     
     
 
