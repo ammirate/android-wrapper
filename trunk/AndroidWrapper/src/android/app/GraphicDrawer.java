@@ -280,6 +280,8 @@ public class GraphicDrawer{
         {
             e.printStackTrace();
         }
+        
+        myInstance = this;
     }
 
 
@@ -533,6 +535,8 @@ public class GraphicDrawer{
      *     -SeekBar
      *     -ListView
      *     -ImageView
+     *     -SurfaceView
+     *     -Switch
      * 
      * ##################### IMPORTANT! ######################################
      * 
