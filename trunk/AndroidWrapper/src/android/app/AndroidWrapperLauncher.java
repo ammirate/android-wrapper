@@ -247,12 +247,18 @@ public class AndroidWrapperLauncher extends JFrame {
                "paint"
                };
        */     
+       //start_edit: IS2 project - MAEESTRO 2013/2014
+
        String[] list = {
     		   "helloWorld",
-               "toastExample",
-    		   "switchExample"
+               "toast_Example",
+    		   "switch_Example",
+               "spinner_Example",
+               "analogClock_Example"
                };
        
+       //end_edit: IS2 project - MAEESTRO 2013/2014
+
 
         JPanel projectPanel = new JPanel();
         projectPanel.setBounds(12, 215, 241, 178);
