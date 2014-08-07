@@ -15,9 +15,9 @@ import java.awt.FlowLayout;
 /**
  * This class allows the use of the Switch widget into MAEESTRO.
  * 
- * @author antonio
+ * @author Antonio Cesarano
  *
- * Class added for the project of Software Engineering 2 
+ * IS2 project - MAEESTRO 2013/2014
  */ 
 public class Switch extends JPanel implements SimpleComponent, Checkable{
 

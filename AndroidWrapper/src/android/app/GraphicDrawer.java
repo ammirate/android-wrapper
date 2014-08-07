@@ -11,7 +11,6 @@ import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +20,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import javax.management.RuntimeErrorException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -41,6 +39,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.AnalogClock;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -49,6 +48,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.WidgetProperties;
@@ -399,7 +399,7 @@ public class GraphicDrawer{
         frame.setSize(width,height);
         frame.setLocation(WidgetProperties.getX_LOCATION(), WidgetProperties.getY_LOCATION());
         frame.getContentPane().setLayout(new BorderLayout());
-        frame.setResizable(false);
+       // frame.setResizable(false);
         lastComponentDrowed = frame.getContentPane();
                 
         if(previusFrame != null)
@@ -537,6 +537,7 @@ public class GraphicDrawer{
      *     -ImageView
      *     -SurfaceView
      *     -Switch
+     *     -Spinner
      * 
      * ##################### IMPORTANT! ######################################
      * 
@@ -664,6 +665,10 @@ public class GraphicDrawer{
             sv.setName(node.getAndroidId());
             return sv;
         }
+        
+        
+        //start_edit: IS2 project - MAEESTRO 2013/2014
+        
         //########## Switch ############
         else if(node.getGraphicElement().equals("Switch"))
         {
@@ -672,6 +677,22 @@ public class GraphicDrawer{
             switch_.setText(node.getText());
             return switch_;
         }
+        
+        else if(node.getGraphicElement().equals("Spinner"))
+        {
+            Spinner spinner = new Spinner(null);
+            spinner.setName(node.getAndroidId());
+            return spinner;
+        }
+        
+        else if(node.getGraphicElement().equals("AnalogClock"))
+        {
+        	AnalogClock clock = new AnalogClock(null);
+        	clock.setName(node.getAndroidId());
+            return clock;
+        }
+        
+      //end_edit: IS2 project - MAEESTRO 2013/2014
         
         return null;
     }
@@ -805,11 +826,21 @@ public class GraphicDrawer{
         if(usingRelativeLayout)
         {
             RelativeConstraints rc = getRelativeConstraints(node, (Component)parent);
+            
+//          if(node.getGraphicElement().equals("Spinner")){
+//        	Vector<String> v = new Vector<String>();
+//        	v.add("1");
+//        	JComboBox<String> j = new JComboBox<String>(v);
+//        	System.out.println("j = " + j);
+//        	((Container)parent).add(j,rc);
+//         }
+//        	else
+//    	 System.out.println(node.getGraphicElement());
             ((Container)parent).add((Component) child, rc);
         }
         else
         {
-            ((Container)parent).add((Component) child);
+        	((Container)parent).add((Component) child);
         }
     }
 

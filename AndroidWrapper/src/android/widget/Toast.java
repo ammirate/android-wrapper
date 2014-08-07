@@ -2,10 +2,12 @@ package android.widget;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 import android.app.GraphicDrawer;
 import android.content.Context;
@@ -15,10 +17,11 @@ import android.content.Context;
  * This class allows to Android applications to show a text message for a short time
  * in a little frame.
  * 
- * @author antonio
+ * @author Antonio Cesarano
  *
- * Class added for the project of Software Engineering 2 
+ * IS2 project - MAEESTRO 2013/2014
  */ 
+
 public  class Toast  extends JFrame{
 
 	/**
@@ -33,11 +36,12 @@ public  class Toast  extends JFrame{
 	private static final int SIZE_X = 160;
 	private static final int SIZE_Y = 40;
 	
-	
+	private static final int CHARS_IN_A_LINE = 20;
+
 	
 	private Context context;
 	
-	private static JLabel textLabel;
+	private static JTextArea textLabel;
 	private static JFrame mytoast;
 	private static int mDuration;
 	
@@ -63,14 +67,20 @@ public  class Toast  extends JFrame{
      *
      */
     public static Toast makeText(Context context, CharSequence text, int duration) {
-    	textLabel = new JLabel("   " + text.toString());
+    	textLabel = new JTextArea("  " + text.toString());
     	textLabel.setForeground(Color.white);
+    	textLabel.setBackground(Color.BLACK);
+    	textLabel.setEditable(false);
+    	textLabel.setAlignmentX(JTextArea.CENTER_ALIGNMENT);
     	mDuration = duration;
     	return new Toast(context);
     }
     
-    
-    /**
+   
+
+
+
+	/**
      * Show the view for the specified duration.
      */
     public void show() {
@@ -83,13 +93,35 @@ public  class Toast  extends JFrame{
     	mytoast.setLocation( (int)(p.getX()),  (int)(p.getY()) );
     	mytoast.setVisible(true);
     	mytoast.setSize(SIZE_X, SIZE_Y);
+    	textLabel.setText(getFormattedString(textLabel.getText()));
     	mytoast.getContentPane().add(textLabel, BorderLayout.CENTER);
+
     	
     	KillerThread kt = new KillerThread(mytoast, mDuration);
     	kt.start();
     }
     
 
+    
+    
+    private String getFormattedString(String s) {
+		char[] mytext = s.toCharArray();
+		String toReturn = "";
+		int rows = 1;
+		
+		for(int i=0; i< mytext.length; i++){	
+//			System.out.println(mytext[i] + " ... and the index i = " + i );
+			if(mytext[i] == ' ' && 
+					(i>=(CHARS_IN_A_LINE*rows) - (2*rows) && 
+						i< (CHARS_IN_A_LINE*rows) + (2*rows))){
+				toReturn += "\n";
+			}
+			toReturn += mytext[i];
+		}
+//		System.out.println("TOAST... testo iniziale: " + s + "\ntesto calcolato: "+ toReturn);
+		return toReturn;
+	}
+    
 
     
     /**

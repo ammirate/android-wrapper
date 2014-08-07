@@ -2,7 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/antonio/Scrivania/is2/android-wrapper/AndroidWrapper/OffTheShelf components/Jama-1.0.2.jar"/>
-	<classpathentry kind="lib" path="/home/antonio/Scrivania/is2/android-wrapper/AndroidWrapper/OffTheShelf components/RelativeLayout-v1.0-src.jar"/>
+	<classpathentry kind="lib" path="D:/Tony/Unisa/Magistrale/IS2/progetto IS2/AndroidWrapper/OffTheShelf components/Jama-1.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/Tony/Unisa/Magistrale/IS2/progetto IS2/AndroidWrapper/OffTheShelf components/RelativeLayout-v1.0-src.jar"/>
+	<classpathentry kind="lib" path="D:/Tony/Unisa/Magistrale/IS2/progetto IS2/AndroidWrapper/OffTheShelf components/apache-commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
