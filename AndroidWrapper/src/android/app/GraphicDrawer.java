@@ -218,7 +218,7 @@ public class GraphicDrawer{
      * @param filename xml file path
      * @throws ParserConfigurationException
      */
-    GraphicDrawer(Bundle bundle)
+    public GraphicDrawer(Bundle bundle)
     {   
         this.bundle = bundle;
         xmlPath = bundle.getXmlPath();
@@ -240,8 +240,6 @@ public class GraphicDrawer{
          //   xmlPath = xmlPath.replace('\\', '/');
             InputStream in = getClass().getResourceAsStream(xmlPath);
             
-            System.out.println("path "+ xmlPath);
-            System.out.println("file in: "+ in);
             
            // document = builder.parse(new FileInputStream(xmlPath));
             document = builder.parse(in);
@@ -350,7 +348,24 @@ public class GraphicDrawer{
      */
     public void generateGraphic()
     {
-        //Main frame in wich put the commands panel and the activity panel
+        generateGUI();              
+
+
+        //create the tree structure of the components
+        draw(tree);
+        //add the components to the activity panel
+        addAll(tree, activityPanel);
+
+        //final settings for the main frame
+        showGraphic();
+       
+        activityPanel.setCanvas(new Canvas(activityPanel.getGraphics()));
+    }
+
+
+
+	private void generateGUI() {
+		//Main frame in wich put the commands panel and the activity panel
         frame = createMainFrame();
         
         //Panel for the system buttons located in the bottom of the screen
@@ -367,19 +382,8 @@ public class GraphicDrawer{
          * the panel with the system buttons (Back, Home, RecentApps) at south
          */
         frame.getContentPane().add(comandPanel,BorderLayout.SOUTH);
-        frame.getContentPane().add(activityPanelScrollable,BorderLayout.NORTH);              
-
-
-        //create the tree structure of the components
-        draw(tree);
-        //add the components to the activity panel
-        addAll(tree, activityPanel);
-
-        //final settings for the main frame
-        showGraphic();
-       
-        activityPanel.setCanvas(new Canvas(activityPanel.getGraphics()));
-    }
+        frame.getContentPane().add(activityPanelScrollable,BorderLayout.NORTH);
+	}
 
 
     //_________________________________________________________________________
@@ -710,14 +714,11 @@ public class GraphicDrawer{
     {
         Object currentComponent = drawComponent(root);//if the root is a Layout element will be returned a JPanel
         List<TreeGraphicNode> currentChildren = root.getChildren();
-
         int id = getHashKey(root.getAndroidId());
-
-        componentsMap.put(id, currentComponent);
-
+        this.componentsMap.put(id, currentComponent);
         //recursive call of this method on all children
         for(int i=0; i<currentChildren.size(); i++)
-        {
+        {	
             draw(currentChildren.get(i));
         }
     }
@@ -726,7 +727,7 @@ public class GraphicDrawer{
     //____________________________________________________________________________________________________
 
     /**
-     * Once created all graphic components this method can add them into the 
+     * Once created all graphic components, this method can add them into the 
      * main JFrame correctly
      * 
      * @param node the node to draw in the main frame
@@ -734,6 +735,7 @@ public class GraphicDrawer{
      */
     private void addAll(TreeGraphicNode node, Object parent)
     {        
+    	
         //get the current graphic component to add to the JFrame
         int key = getHashKey(node.getAndroidId());
         Object currentComponent = componentsMap.get(key);
@@ -981,10 +983,20 @@ public class GraphicDrawer{
     {
         return frame;
     }
+    
+    public TreeGraphicNode getTree() {
+		return tree;
+	}
+
+    
+    
     //_________________________________________________________________________    
       
     
-    /**
+
+
+
+	/**
      * Creates a RelativeConstraint object from the TreeGraphicNode properties
      * to add correctly the component into a Container with a RelativeLayout
      * 
@@ -1360,6 +1372,10 @@ public class GraphicDrawer{
     }
     
     
+    
+    public void printTree(){
+    	parser.printGraphicNode(tree, 0);
+    }
     
 }
 

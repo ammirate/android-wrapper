@@ -254,7 +254,13 @@ public class AndroidWrapperLauncher extends JFrame {
                "toast_Example",
     		   "switch_Example",
                "spinner_Example",
-               "analogClock_Example"
+               "analogClock_Example",
+               //** TEST **
+               "testToast",
+               "testSwitch",
+               "testSpinner",
+               "testAnalogClock"
+               
                };
        
        //end_edit: IS2 project - MAEESTRO 2013/2014
