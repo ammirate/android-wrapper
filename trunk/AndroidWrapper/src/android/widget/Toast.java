@@ -74,6 +74,7 @@ public  class Toast  extends JFrame{
     	textLabel.setAlignmentX(JTextArea.CENTER_ALIGNMENT);
     	mDuration = duration;
     	return new Toast(context);
+
     }
     
    
@@ -151,6 +152,7 @@ public  class Toast  extends JFrame{
 	   
 	   public KillerThread(JFrame f, int t){
 		   super();
+		   
 		   this.frame = f;
 		   this.time = t;
 	   }

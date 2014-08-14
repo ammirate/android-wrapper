@@ -1,0 +1,24 @@
+<RelativeLayout >
+
+	<TextView android:id="@+id/textView1"/>
+		
+	<Button android:id="@+id/button1"/>
+
+		<RadioGroup android:id="@+id/radioGroup1">
+
+			<RadioButton android:id="@+id/radio0"/>
+
+			<RadioButton android:id="@+id/radio1" />
+
+			<RadioButton android:id="@+id/radio2"/>
+			
+		</RadioGroup>
+
+		<SeekBar android:id="@+id/seekBar1" />
+		
+
+		<CheckBox android:id="@+id/checkBox1" />
+
+		<CheckBox android:id="@+id/checkBox2" />
+
+</RelativeLayout>
