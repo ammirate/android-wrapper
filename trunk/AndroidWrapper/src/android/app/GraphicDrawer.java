@@ -306,9 +306,18 @@ public class GraphicDrawer{
             {
                 fields[c].setAccessible(true);
               //  System.out.println("fillR_HashMap() --> " + fields[c].get(null) +" name: "+ fields[c].getName());
+            
+                //start_edit: IS2 project - MAEESTRO 2013/2014
                 if(fields[c].get(null) instanceof Integer){
                 	R_hashMap.put((Integer)fields[c].get(null), fields[c].getName());
                 }
+                else  if(fields[c].get(null) instanceof Integer[]){
+                }
+                else{
+                	throw new IllegalArgumentException("R.java file contains object not allowed");
+                }
+                //end_edit: IS2 project - MAEESTRO 2013/2014
+
             } 
         }
     }
@@ -776,6 +785,13 @@ public class GraphicDrawer{
         /* while setting a layout, the two objects are the same element
          * so it's not possible add an object to itself
          */
+        //start_edit: IS2 project - MAEESTRO 2013/2014
+    	if (parent == null)
+    	{
+    		throw new IllegalArgumentException("Parent component missed. Seems like it is null");
+    	}
+        //end_edit: IS2 project - MAEESTRO 2013/2014
+
         if(parent == child)
         {
             return;

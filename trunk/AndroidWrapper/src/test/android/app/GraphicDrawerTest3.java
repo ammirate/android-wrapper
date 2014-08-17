@@ -163,9 +163,8 @@ public class GraphicDrawerTest3 extends TestCase{
 			fail("Should raise an exception");
 		} 
 		catch (IllegalAccessException e) {} 
-		catch (IllegalArgumentException e) {} 
+		catch (IllegalArgumentException  success) {}
 		catch (InvocationTargetException e) {}
-		
 		System.out.println("ok");
 	}
 

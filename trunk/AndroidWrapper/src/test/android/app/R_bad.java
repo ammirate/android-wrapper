@@ -14,7 +14,7 @@ public final class R_bad {
 
 
     public static final class id {
-        public static final String button1="string1";
+        public static final int button1=0;
         public static final int checkBox1=-5;        
         public static final double checkBox2=0x7f080008;
         public static final ArrayList<String> radio0=new ArrayList<String>();
