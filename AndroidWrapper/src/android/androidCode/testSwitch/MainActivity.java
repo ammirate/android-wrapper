@@ -12,6 +12,7 @@ import android.widget.Switch.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//IS2 project - MAEESTRO 2013/2014
 public class MainActivity extends Activity {
 
 

@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+//IS2 project - MAEESTRO 2013/2014
 public class MainActivity extends Activity {
 
 	@Override
@@ -30,7 +31,8 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "Long Toast", Toast.LENGTH_LONG).show();;
+				String s = "This is a long text to test the Long Toast" ;
+				Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();;
 
 			}
 		});

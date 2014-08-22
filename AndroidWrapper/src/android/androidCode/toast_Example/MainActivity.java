@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+//IS2 project - MAEESTRO 2013/2014
 public class MainActivity extends Activity {
 
 	@Override

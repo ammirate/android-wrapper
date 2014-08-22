@@ -6,6 +6,7 @@ import android.widget.Switch;
 import android.widget.Switch.OnCheckedChangeListener;
 import android.widget.TextView;
 
+//IS2 project - MAEESTRO 2013/2014
 public class MainActivity extends Activity {
 
 	private TextView switchStatus;

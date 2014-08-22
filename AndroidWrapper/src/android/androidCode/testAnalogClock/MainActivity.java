@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.AnalogClock;
  
+//IS2 project - MAEESTRO 2013/2014
 public class MainActivity extends Activity {
  
 	@Override
