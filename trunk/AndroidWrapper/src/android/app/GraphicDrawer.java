@@ -377,12 +377,16 @@ public class GraphicDrawer{
 		//Main frame in wich put the commands panel and the activity panel
         frame = createMainFrame();
         
+        //start_edit: IS2 project - MAEESTRO 2013/2014
+
         //Panel for the system buttons located in the bottom of the screen
         JPanel comandPanel = createCommandsPanel();          
 
         //The panel in which the Android app will be execute
         activityPanel = createActivityPanel();
         
+        //end_edit: IS2 project - MAEESTRO 2013/2014
+
         //Create a scrollable panel that contains the activity panel
         JScrollPane activityPanelScrollable = createScrollablePanel();
         
